@@ -68,7 +68,7 @@ export default function Login() {
               className="login-input"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              placeholder="nom.cognom@alumne.lassalle.cat"
+              placeholder="alumne@tarragona.lasalle.cat"
               required
               autoComplete="email"
             />
