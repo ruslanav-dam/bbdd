@@ -293,7 +293,7 @@ export default function Examen() {
         fill_values:     vals,
         is_correct:      ok,
         is_partial:      false,
-        points_awarded:  ok ? 0.5 : 0,
+        points_awarded:  ok ? 0.25 : 0,
       })
     })
 
@@ -353,7 +353,7 @@ export default function Examen() {
         qNum: cfg.qNum, type: 'fill',
         studentAnswer: cfg.inputs.map(inp => fillValues[inp.id] || '—').join(' / '),
         correctAnswer: cfg.inputs.map(inp => inp.answer).join(' / '),
-        pts: ok ? 0.5 : 0, maxPts: 0.5,
+        pts: ok ? 0.25 : 0, maxPts: 0.25,
         isCorrect: ok, isPartial: false,
       })
     })
@@ -436,13 +436,13 @@ export default function Examen() {
       <div className="rules-box">
         <h4>Normes de l'examen</h4>
         <ul>
-          <li>⏱ Temps límit: <strong>25 minuts</strong></li>
-          <li>📋 20 preguntes · Nota màxima: 10 punts</li>
-          <li>🔒 <strong>Un sol intent.</strong> Un cop entregat no es pot repetir.</li>
-          <li>🚫 Canviar de pestanya o finestra <strong>suspèn l'examen automàticament</strong></li>
-          <li>🚫 Eines de desenvolupador desactivades</li>
-          <li>🚫 Clic dret desactivat</li>
-          <li>📱 Assegura't de tenir connexió estable</li>
+          <li>Temps límit: <strong>30 minuts</strong></li>
+          <li>20 preguntes · Nota màxima: 10 punts</li>
+          <li><strong>Un sol intent.</strong> Un cop entregat no es pot repetir.</li>
+          <li>Canviar de pestanya o finestra <strong>suspèn l'examen automàticament</strong></li>
+          <li>Eines de desenvolupador desactivades</li>
+          <li>Clic dret desactivat</li>
+          <li>Assegura't de tenir connexió estable</li>
         </ul>
       </div>
 
@@ -532,7 +532,7 @@ export default function Examen() {
           <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: 2 }}>{EXAM.course}</div>
         </div>
         <button className="copy-result-btn" onClick={handleCopy}>
-          {copied ? '✓ Copiat!' : '📋 Copiar resum'}
+          {copied ? 'Copiat!' : 'Copiar resum'}
         </button>
       </div>
 
@@ -543,12 +543,12 @@ export default function Examen() {
           <span style={{ fontSize: '1.6rem', color: 'var(--text-muted)', fontWeight: 400 }}>/10</span>
         </div>
         <div className={results.passed ? 'pass-badge' : 'fail-badge'}>
-          {results.passed ? '✓ APROVAT' : '✗ NO APROVAT'}
+          {results.passed ? 'APROVAT' : 'NO APROVAT'}
         </div>
         <div className="result-meta-row">
-          <span>⏱ {fmtElapsed(results.elapsed)}</span>
-          {infractions.length > 0 && <span>⚠ {infractions.length} infracció{infractions.length !== 1 ? 'ns' : ''}</span>}
-          {results.timeUp && <span>· Temps exhaurit</span>}
+          <span>{fmtElapsed(results.elapsed)}</span>
+          {infractions.length > 0 && <span>{infractions.length} infracció{infractions.length !== 1 ? 'ns' : ''}</span>}
+          {results.timeUp && <span>Temps exhaurit</span>}
         </div>
       </div>
 
@@ -596,7 +596,7 @@ export default function Examen() {
       <div className="result-copy-footer">
         <p>Copia el resum i envia'l al portal d'entrega.</p>
         <button className="copy-result-btn copy-result-btn-lg" onClick={handleCopy}>
-          {copied ? '✓ Resum copiat al portapapers!' : '📋 Copiar resum per entregar'}
+          {copied ? 'Resum copiat al portapapers!' : 'Copiar resum per entregar'}
         </button>
       </div>
     </div>

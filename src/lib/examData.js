@@ -7,11 +7,11 @@ export const EXAM = {
   title:     'Examen SQL — Mòdul 2',
   subtitle:  "Funcions d'agregació · GROUP BY · HAVING · DISTINCT · ORDER BY",
   course:    '0484 Bases de Dades · DAM 2025-2026',
-  timeLimit: 25 * 60,   // segons
+  timeLimit: 30 * 60,   // segons
   totalQ:    20,
   parts: [
     { id: 'A', label: "Part A — Test d'opció múltiple",   pts: '0.5 pts × 8', qNums: [1,2,3,4,5,6,7,8] },
-    { id: 'B', label: 'Part B — Completar el codi SQL',   pts: '0.5 pts × 6', qNums: [9,10,11,12,13,14] },
+    { id: 'B', label: 'Part B — Completar el codi SQL',   pts: '0.25 pts × 6', qNums: [9,10,11,12,13,14] },
     { id: 'C', label: 'Part C — Interpretar resultats',    pts: '0.5 pts × 3', qNums: [15,16,17] },
     { id: 'D', label: 'Part D — Escriure consultes SQL',   pts: '1 pt × 3',    qNums: [18,19,20] },
   ],
@@ -270,7 +270,7 @@ export const WRITE_QUESTIONS = [
   {
     qNum: 18,
     text: `Utilitza la taula <strong>Products</strong> amb els camps:<br>
-      <code>Code</code> INT (PK), <code>Name</code> TEXT, <code>Price</code> REAL, <code>Manufacturer</code> INT (FK)<br><br>
+      <code>Code</code> INT (PK), <code>Name</code> VARCHAR(100), <code>Price</code> DECIMAL(10,2), <code>Manufacturer</code> INT (FK)<br><br>
       Escriu la consulta per obtenir el <strong>nombre de productes per fabricant</strong>, mostrant únicament els fabricants que tinguin <strong>més de 1 producte</strong>. Mostra el camp <code>Manufacturer</code> i el recompte amb l'àlies <code>Total</code>.`,
     placeholder: "SELECT ...\nFROM ...\nGROUP BY ...\nHAVING ...",
     required: [
@@ -288,7 +288,7 @@ export const WRITE_QUESTIONS = [
   {
     qNum: 19,
     text: `Utilitza la taula <strong>Employees</strong>:<br>
-      <code>Code</code> INT (PK), <code>Name</code> TEXT, <code>Department</code> TEXT, <code>Salary</code> REAL, <code>HireDate</code> DATE<br><br>
+      <code>Code</code> INT (PK), <code>Name</code> VARCHAR(100), <code>Department</code> VARCHAR(50), <code>Salary</code> DECIMAL(10,2), <code>HireDate</code> DATE<br><br>
       Escriu la consulta per obtenir el <strong>salari màxim, mínim i mitjà</strong> per departament, ordenat pel <strong>salari mitjà de manera descendent</strong>. Usa els àlies <code>SalariMax</code>, <code>SalariMin</code> i <code>SalariMitja</code>.`,
     placeholder: "SELECT ...\nFROM ...\nGROUP BY ...\nORDER BY ...",
     required: [
@@ -356,7 +356,7 @@ export function calcTotalScore(mcAnswers, fillValues, writeValues) {
 
   // Fill (part B)
   FILL_QUESTIONS.forEach(cfg => {
-    if (gradeFill(cfg, fillValues)) total += 0.5
+    if (gradeFill(cfg, fillValues)) total += 0.25
   })
 
   // Write (part D)
